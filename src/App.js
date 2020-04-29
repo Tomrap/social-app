@@ -2,6 +2,7 @@ import React from 'react';
 import Welcome from './login/welcome'
 import MainPage from './main/mainPage'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import UserProvider from "./login/UserProvider";
 
 
 const VIEWS = [
@@ -24,9 +25,11 @@ const Content = () => {
 
 function App() {
   return (
-    <Router>
-        <Content />
-    </Router>
+    <UserProvider>
+      <Router>
+          <Content />
+      </Router>
+    </UserProvider>
   );
 }
 

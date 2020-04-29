@@ -10,24 +10,29 @@ class Firebase {
     this.auth = firebase.auth;
   }
 
+  getAuth() {
+    return this.auth;
+  }
+
   async signup(email, password, successHandler) {
     await this.auth().createUserWithEmailAndPassword(email, password).then(() => successHandler())
     .catch(error => console.log(error.message))
   }
 
- registerUser =  async (user) => {
-      await this.db.collection("users").add(
-          user
-      )
-  }
-
+  
   signout() {
     return this.auth().signOut();
   }
 
-  signin(email, password, successHandler) {
-    this.auth().signInWithEmailAndPassword(email, password).then(() => successHandler())
+  signin(email, password) {
+    this.auth().signInWithEmailAndPassword(email, password)
     .catch(error => console.log(error.message))
+  }
+  
+  registerUser =  async (user) => {
+      await this.db.collection("users").add(
+          user
+      )
   }
 
   getAllBurgers = async () => {
