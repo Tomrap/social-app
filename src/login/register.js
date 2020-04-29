@@ -26,7 +26,8 @@ class Register extends Component {
         context.signup(this.state.email, this.state.password, () => {
             const user = {...this.state}
             delete user.password
-            context.registerUser(user)
+            //possible race condition in UserProvider, might get user before it was added to database so signout here and login manually
+            context.registerUser(user).then(()=>context.signout())
         })
     }
 

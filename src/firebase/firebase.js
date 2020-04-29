@@ -19,6 +19,10 @@ class Firebase {
     .catch(error => console.log(error.message))
   }
 
+  getCurrentUser() {
+    return this.auth().currentUser;
+  }
+
   
   signout() {
     return this.auth().signOut();
@@ -30,10 +34,23 @@ class Firebase {
   }
   
   registerUser =  async (user) => {
+      const currentUser = this.auth().currentUser;
+      const userRef = currentUser.uid
+      user.userRef = userRef;
       await this.db.collection("users").add(
           user
       )
   }
+
+  getUser = async (userAuth) => {
+      let querySnapshot = await this.db.collection("users").where("userRef", "==", userAuth.uid).limit(1).get()
+      let user;
+      querySnapshot.forEach((doc) => {
+        user = doc.data();
+      });
+      return user;
+    }
+
 
   getAllBurgers = async () => {
     let querySnapshot = await this.db.collection("burgers").get();
