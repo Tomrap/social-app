@@ -1,26 +1,40 @@
 import React, { Component } from 'react';
 import Slider from "react-slick";
 
-class Main extends Component {
-
-
+class MainPage extends Component {
 
     render() {
-
         var settings1 = {
-            infinite: true,
-            speed: 500,
-            adaptiveHeight: true,
+            speed: 800,
             slidesToShow: 10,
-            slidesToScroll: 1
+            adaptiveHeight: true,
+            prevArrow: <button type="button" class="slick-prev"><i class="bi bi-arrow-left-rounded"></i></button>,
+            nextArrow: <button type="button" class="slick-next"><i class="bi bi-arrow-right-rounded"></i></button>,
+            responsive: [{
+                breakpoint: 1200,
+                settings: {
+                    slidesToShow: 5,
+                }
+            },
+            {
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 8,
+                }
+            }]
         }; 
 
         var settings2 = {
-            infinite: true,
-            speed: 500,
-            slidesToShow: 5,
+            speed: 800,
+            slidesToShow: 6,
             adaptiveHeight: true,
-            slidesToScroll: 1
+            arrows: false,
+            responsive: [{
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 4,
+                }
+            }]
         };   
 
         return  (
@@ -1587,7 +1601,7 @@ class Main extends Component {
                                 </div>
                                 <div className="card card-small mb-0 active-profile-wrapper">
                                     <div className="active-profiles-wrapper">
-                                        <Slider  className="slick-row-20 active-profile-carousel slick-arrow-style" {...settings1}  nextArrow={<button type="button" className="slick-next slick-arrow" style=""><i className="bi bi-arrow-right-rounded"></i></button>} prevArrow={<button type="button" className="slick-prev slick-arrow" style=""><i className="bi bi-arrow-left-rounded"></i></button>}>
+                                        <Slider className="slick-row-20 active-profile-carousel slick-arrow-style" {...settings1}>
                                             <div className="single-slide">
                                                 <div className="profile-thumb active profile-active">
                                                     <a href="#">
@@ -1803,7 +1817,7 @@ class Main extends Component {
                                 <div className="card card-small mb-0 active-profile-mob-wrapper">
                                     <div className="active-profiles-mob-wrapper">
                                         <div className="active-profile-mobile">
-                                        <Slider className="slick-row-10 active-profile-carousel slick-arrow-style" {...settings2}  nextArrow={<button type="button" className="slick-next slick-arrow" style=""><i className="bi bi-arrow-right-rounded"></i></button>} prevArrow={<button type="button" className="slick-prev slick-arrow" style=""><i className="bi bi-arrow-left-rounded"></i></button>}>
+                                        <Slider className="slick-row-10 active-profile-carousel slick-arrow-style" {...settings2}>
                                             <div className="single-slide">
                                                 <div className="profile-thumb active profile-active">
                                                     <a href="#">
@@ -1890,4 +1904,4 @@ class Main extends Component {
     }
 }
 
-export default Main;
+export default MainPage;

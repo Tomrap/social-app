@@ -34,58 +34,6 @@
       	plyrYoutube = new Plyr('.plyr-youtube'),
 		plyrVimeo = new Plyr('.plyr-vimeo');
 		  
-    // active profile carousel js
-	$('.active-profile-carousel').slick({
-        speed: 800,
-        slidesToShow: 10,
-		prevArrow: '<button type="button" class="slick-prev"><i class="bi bi-arrow-left-rounded"></i></button>',
-		nextArrow: '<button type="button" class="slick-next"><i class="bi bi-arrow-right-rounded"></i></button>',
-		responsive: [{
-			breakpoint: 1200,
-			settings: {
-				slidesToShow: 5,
-			}
-		},
-		{
-			breakpoint: 992,
-			settings: {
-				slidesToShow: 8,
-			}
-		}]
-	});
-
-	// active profile carousel js
-	$('.active-profile-mobile').slick({
-        speed: 800,
-		slidesToShow: 6,
-		arrows: false,
-		responsive: [{
-			breakpoint: 480,
-			settings: {
-				slidesToShow: 4,
-			}
-		}]
-	});
-
-	// active profile carousel js
-	$('.favorite-item-carousel').slick({
-		autoplay: true,
-        speed: 800,
-		slidesToShow: 5,
-		arrows: false,
-		responsive: [{
-			breakpoint: 992,
-			settings: {
-				slidesToShow: 3,
-			}
-		},
-		{
-			breakpoint: 576,
-			settings: {
-				slidesToShow: 2,
-			}
-		}]
-	});
 
 	// live chat box and friend search box active js
 	$(".profile-active").on('click', function(){
@@ -204,4 +152,3 @@
 	});
     
 })(jQuery);
-

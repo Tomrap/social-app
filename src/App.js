@@ -1,12 +1,12 @@
 import React from 'react';
 import Welcome from './login/welcome'
-import Main from './main/main'
+import MainPage from './main/mainPage'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 
 const VIEWS = [
   ["welcome", Welcome],
-  ["Main", Main],
+  ["MainPage", MainPage],
   ["", Welcome]
 ];
 
