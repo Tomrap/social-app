@@ -1,18 +1,33 @@
 import app from 'firebase/app';
 import "firebase/firestore";
 import FirebaseConfig from './firebaseConfig';
+import firebase from "firebase";
 
 class Firebase {
   constructor() {
     app.initializeApp(FirebaseConfig);
     this.db = app.firestore();
+    this.auth = firebase.auth;
   }
 
-  saveToDatabase = (burger, successHandler, errorHandler) => {
-      this.db.collection("burgers").add({
-          burger
-      }).then(successHandler)
-      .catch(errorHandler);
+  async signup(email, password, successHandler) {
+    await this.auth().createUserWithEmailAndPassword(email, password).then(() => successHandler())
+    .catch(error => console.log(error.message))
+  }
+
+ registerUser =  async (user) => {
+      await this.db.collection("users").add(
+          user
+      )
+  }
+
+  signout() {
+    return this.auth().signOut();
+  }
+
+  signin(email, password, successHandler) {
+    this.auth().signInWithEmailAndPassword(email, password).then(() => successHandler())
+    .catch(error => console.log(error.message))
   }
 
   getAllBurgers = async () => {
