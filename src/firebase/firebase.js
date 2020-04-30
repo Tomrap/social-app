@@ -25,7 +25,9 @@ class Firebase {
 
   
   signout() {
-    return this.auth().signOut();
+    this.auth().signOut().catch(error => console.log(error));
+    console.log("user logge out")
+    return
   }
 
   signin(email, password) {

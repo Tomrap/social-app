@@ -2230,6 +2230,11 @@ textarea:focus {
   overflow: hidden;
 }
 
+#frnd-request-list-regular {
+  width: 450%;
+  display: none;
+}
+
 /*--------- friend request list start ---------*/
 .frnd-request-list {
   background-color: #fff;

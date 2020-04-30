@@ -1,24 +1,24 @@
 (function ($) {
 	"use strict";
 
-	$(".msg-trigger-btn").on("click", function (event) {
-		event.stopPropagation();
-		event.preventDefault();
-		var $this = $(this);
-		var $prevTartget = $(this).parent().siblings().children(".msg-trigger-btn").attr('href');
-		var target = $this.attr('href');
-		$(target).slideToggle();
-		$($prevTartget).slideUp();
+	// $(".msg-trigger-btn").on("click", function (event) {
+	// 	event.stopPropagation();
+	// 	event.preventDefault();
+	// 	var $this = $(this);
+	// 	var $prevTartget = $(this).parent().siblings().children(".msg-trigger-btn").attr('href');
+	// 	var target = $this.attr('href');
+	// 	$(target).slideToggle();
+	// 	$($prevTartget).slideUp();
 		
-    });
+    // });
 
-	//Close When Click Outside
-	$('body').on('click', function(e){
-		var $target = e.target;
-		if (!$($target).is('.message-dropdown') && !$($target).parents().is('.message-dropdown')) {
-			$(".message-dropdown").slideUp("slow");
-		}
-	});
+	// //Close When Click Outside
+	// $('body').on('click', function(e){
+	// 	var $target = e.target;
+	// 	if (!$($target).is('.message-dropdown') && !$($target).parents().is('.message-dropdown')) {
+	// 		$(".message-dropdown").slideUp("slow");
+	// 	}
+	// });
 
 	//Background Image JS start
 	var bgSelector = $(".bg-img");
@@ -56,28 +56,15 @@
 	$(".chat-trigger, .close-btn").on('click', function(){
 		$('.mobile-chat-box').toggleClass('show');
 	})
-	$(".request-trigger").on('click', function(){
-		$('.frnd-request-list').toggleClass('show');
-	})
+	// $(".request-trigger").on('click', function(){
+	// 	$('.frnd-request-list').toggleClass('show');
+	// })
 
 	// mobile friend search active js
 	$(".search-toggle-btn").on('click', function(){
 		$('.mob-frnd-search-inner').toggleClass('show');
 	})
 
-	// profile dropdown triger js
-	$('.profile-triger').on('click', function(event){
-		event.stopPropagation();
-        $(".profile-dropdown").slideToggle();
-	})
-
-	//Close When Click Outside
-	$('body').on('click', function(e){
-		var $target = e.target;
-		if (!$($target).is('.profile-dropdown') && !$($target).parents().is('.profile-dropdown')) {
-			$(".profile-dropdown").slideUp("slow");
-		}
-	});
 
 	// perfect scroll bar js
 	$('.custom-scroll').each(function(){
