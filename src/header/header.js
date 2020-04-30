@@ -29,7 +29,7 @@ const Header = (props) => {
                     <div className="container">
                         <div className="row align-items-center">
                             <div className="col-md-5">
-                                <div className="header-top-navigation">
+                                <div className="header-top-navigation"> 
                                     <nav>
                                         <ul>
                                             <li className="active"><a href="index.html">home</a></li>

@@ -4,13 +4,15 @@ import $ from 'jquery';
 
 
 const MessagesDropdown = (props) => {
-        
+
+    const handler = (event) => {
+        // event.stopPropagation();
+        event.preventDefault();
+        $("#messagesId").slideToggle(); 
+    };
+
     return (
-        <li className="msg-trigger"><a className="msg-trigger-btn" onClick={(event) => {
-            event.stopPropagation();
-            event.preventDefault();
-            $("#messagesId").slideToggle();
-        }}>Messages</a>
+        <li className="msg-trigger"><a className="msg-trigger-btn" onClick={handler}>Messages</a>
         <div className="message-dropdown" id="messagesId">
             <div className="dropdown-title">
                 <p className="recent-msg">recent message</p>
