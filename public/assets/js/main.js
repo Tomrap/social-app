@@ -39,14 +39,14 @@
 	$(".profile-active").on('click', function(){
 		$(".chat-output-box").addClass('show');
 	})
-	$(".search-field").on('click', function(){
-		$(".friend-search-list").addClass('show');
-	})
-	$(".close-btn").on('click', function(){
-		var $this = $(this),
-			$target = $this.data('close');
-		$('.'+$target).removeClass('show');
-	})
+	// $(".search-field").on('click', function(){
+	// 	$(".friend-search-list").addClass('show');
+	// })
+	// $(".close-btn").on('click', function(){
+	// 	var $this = $(this),
+	// 		$target = $this.data('close');
+	// 	$('.'+$target).removeClass('show');
+	// })
 	
 	// mobile header seach box active
 	$(".search-trigger").on('click', function(){

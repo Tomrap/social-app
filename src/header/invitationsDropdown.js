@@ -1,18 +1,25 @@
-import React from 'react';
-import $ from 'jquery'; 
-
+import React , { useContext } from 'react';
 
 const InvitationsDropdown = (props) => {
         
+    const [classNames, setClassNames] = React.useState(`frnd-request-list`);
+
+    const toggleClass = () => {
+        if(classNames == `frnd-request-list show`) {
+            setClassNames(`frnd-request-list`)
+        } else {
+            setClassNames(`frnd-request-list show`)
+        }
+    }
 
     return (
         <li>
         <a className="msg-trigger-btn" onClick={(event) => {
             event.stopPropagation();
             event.preventDefault();
-            $('.frnd-request-list').toggleClass('show');
+            toggleClass();
         }}>Invitations</a>
-        <ul className="frnd-request-list" id='frnd-request-list-regular'>
+        <ul className={classNames} id='frnd-request-list-regular'>
             <li>
                 <div className="frnd-request-member">
                     <figure className="request-thumb">

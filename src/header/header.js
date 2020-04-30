@@ -3,25 +3,10 @@ import MessagesDropdown from './messagesDropdown'
 import NotificationsDropdown from './notificationsDropdown'
 import SearchBox from './searchBox'
 import ProfileSettingsDropdown from './profileSettingDropdown'
-import $ from 'jquery'; 
 import InvitationsDropdown from './invitationsDropdown'
 
 const Header = (props) => {
 
-    //Close When Click Outside
-	$('body').on('click', function(e){
-		var $target = e.target;
-		if (!$($target).is('.message-dropdown') && !$($target).parents().is('.message-dropdown')) {
-			$(".message-dropdown").slideUp("slow");
-		}
-    });
-
-    $('body').on('click', function(e){
-		var $target = e.target;
-		if (!$($target).is('.frnd-request-list') && !$($target).parents().is('.frnd-request-list')) {
-			$(".frnd-request-list").removeClass('show');
-		}
-    });
 
     return (
         <header>
