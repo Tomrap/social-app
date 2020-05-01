@@ -167,6 +167,16 @@ textarea:focus {
   opacity: 1;
 }
 
+.myOwnTextArea {
+  overflow-y: scroll;
+  height: 100px;
+  resize: none; /* Remove this if you want the user to resize the textarea */
+}
+
+.myOwnTextArea::-webkit-scrollbar {
+  display: none;
+}
+
 /*Custom Scroll (Perfect Scroll)*/
 .custom-scroll {
   position: relative;

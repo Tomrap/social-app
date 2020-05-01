@@ -30,7 +30,7 @@ class Login extends Component {
             {context => 
             {
                 if(context) {
-                    return <Redirect to="/MainPage"/>
+                    return <Redirect to="/ProfilePage"/>
                 } else {
                     return (
                         <div className="col-lg-6">

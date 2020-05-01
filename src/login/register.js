@@ -46,7 +46,7 @@ class Register extends Component {
         {context => 
         {
             if(context) {
-                return <Redirect to="/MainPage"/>
+                return <Redirect to="/ProfilePage"/>
             } else {
                 return (
                     <div className="col-lg-6 order-1 order-lg-2 d-flex align-items-center justify-content-center">

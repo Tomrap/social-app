@@ -1,6 +1,7 @@
 import React from 'react';
 import Welcome from './login/welcome'
 import MainPage from './main/mainPage'
+import ProfilePage from './profile/profilePage'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import UserProvider from "./login/UserProvider";
 
@@ -8,7 +9,8 @@ import UserProvider from "./login/UserProvider";
 const VIEWS = [
   ["welcome", Welcome],
   ["MainPage", MainPage],
-  ["", Welcome]
+  ["ProfilePage", ProfilePage],
+  ["", ProfilePage]
 ];
 
 const Content = () => {

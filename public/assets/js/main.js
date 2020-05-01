@@ -36,9 +36,9 @@
 		  
 
 	// live chat box and friend search box active js
-	$(".profile-active").on('click', function(){
-		$(".chat-output-box").addClass('show');
-	})
+	// $(".profile-active").on('click', function(){
+	// 	$(".chat-output-box").addClass('show');
+	// })
 	// $(".search-field").on('click', function(){
 	// 	$(".friend-search-list").addClass('show');
 	// })
@@ -49,27 +49,27 @@
 	// })
 	
 	// mobile header seach box active
-	$(".search-trigger").on('click', function(){
-		$('.search-trigger, .mob-search-box').toggleClass('show');
-	})
+	// $(".search-trigger").on('click', function(){
+	// 	$('.search-trigger, .mob-search-box').toggleClass('show');
+	// })
 	
-	$(".chat-trigger, .close-btn").on('click', function(){
-		$('.mobile-chat-box').toggleClass('show');
-	})
+	// $(".chat-trigger, .close-btn").on('click', function(){
+	// 	$('.mobile-chat-box').toggleClass('show');
+	// })
 	// $(".request-trigger").on('click', function(){
 	// 	$('.frnd-request-list').toggleClass('show');
 	// })
 
 	// mobile friend search active js
-	$(".search-toggle-btn").on('click', function(){
-		$('.mob-frnd-search-inner').toggleClass('show');
-	})
+	// $(".search-toggle-btn").on('click', function(){
+	// 	$('.mob-frnd-search-inner').toggleClass('show');
+	// })
 
 
 	// perfect scroll bar js
-	$('.custom-scroll').each(function(){
-		var ps = new PerfectScrollbar($(this)[0]);
-	});
+	// $('.custom-scroll').each(function(){
+	// 	var ps = new PerfectScrollbar($(this)[0]);
+	// });
 
 
 	// light gallery active js
@@ -120,18 +120,18 @@
 	$('select').niceSelect();
 
 	// Scroll to top active js
-	$(window).on('scroll', function () {
-		if ($(this).scrollTop() > 600) {
-			$('.scroll-top').removeClass('not-visible');
-		} else {
-			$('.scroll-top').addClass('not-visible');
-		}
-	});
-	$('.scroll-top').on('click', function (event) {
-		$('html,body').animate({
-			scrollTop: 0
-		}, 1000);
-	});
+	// $(window).on('scroll', function () {
+	// 	if ($(this).scrollTop() > 600) {
+	// 		$('.scroll-top').removeClass('not-visible');
+	// 	} else {
+	// 		$('.scroll-top').addClass('not-visible');
+	// 	}
+	// });
+	// $('.scroll-top').on('click', function (event) {
+	// 	$('html,body').animate({
+	// 		scrollTop: 0
+	// 	}, 1000);
+	// });
 
 
 	$('#email').bind("cut copy paste",function(e) {

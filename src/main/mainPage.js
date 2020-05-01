@@ -5,6 +5,7 @@ import Header from '../header/header'
 import MobileHeader from '../header/mobileHeader'
 import MobileFooter from '../footer/mobileFooter'
 import Footer from '../footer/footer'
+import ScrollTop from '../footer/scrollTop'
 
 class MainPage extends Component {
 
@@ -1011,9 +1012,7 @@ return <UserContext.Consumer>
                     </div>
                 </div>
             </main>
-            <div className="scroll-top not-visible">
-                <i className="bi bi-finger-index"></i>
-            </div>
+            <ScrollTop></ScrollTop>
             <Footer></Footer>
             <MobileFooter></MobileFooter>
             </body>
