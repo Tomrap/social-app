@@ -1,20 +1,16 @@
 import React, { Component } from 'react';
-import { UserContext } from "../login/UserProvider";
-import { Redirect } from "react-router-dom";
 import Header from '../header/header'
 import MobileHeader from '../header/mobileHeader'
 import MobileFooter from '../footer/mobileFooter'
 import Footer from '../footer/footer'
 import ScrollTop from '../footer/scrollTop'
+import LoginRedirect from './loginRedirect'
 
 class MainPage extends Component {
 
     render() {  
-return <UserContext.Consumer>
-    {context => {
-        if(context) {
-            return  (
-                <body>
+    return (
+            <body>
             <Header></Header>
             <MobileHeader></MobileHeader>
             <main>
@@ -1017,13 +1013,6 @@ return <UserContext.Consumer>
             <MobileFooter></MobileFooter>
             </body>
             )
-        } else {
-            return <Redirect to="/Welcome"/>
-        }
-    }
-    }
-    </UserContext.Consumer>
-        // }
     }
 }
-export default MainPage;    
+export default LoginRedirect(MainPage);    

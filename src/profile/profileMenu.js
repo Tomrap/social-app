@@ -1,4 +1,5 @@
 import React from 'react';
+import scrollToComponent from 'react-scroll-to-component';
 
 const ProfileMenu = (props) => {
 
@@ -10,7 +11,7 @@ const ProfileMenu = (props) => {
                     <div className="profile-picture-box">
                         <figure className="profile-picture">
                             <a href="profile.html">
-                                <img src="assets/images/profile/profile-1.jpg" alt="profile picture"/>
+                                <img src={props.profileImage} alt="profile picture"/>
                             </a>
                         </figure>
                     </div>
@@ -21,10 +22,10 @@ const ProfileMenu = (props) => {
                             <nav>
                                 <ul className="main-menu">
                                     <li className="active"><a href="#">timeline</a></li>
-                                    <li><a href="about.html">about</a></li>
-                                    <li><a href="photos.html">photos</a></li>
-                                    <li><a href="friends.html">friends</a></li>
-                                    <li><a href="about.html">more</a></li>
+                                    <li><a onClick={()=> {scrollToComponent(props.aboutRef, { offset: -100, align: 'middle', duration: 500, ease:'inCirc'})}}>about</a></li>
+                                    <li><a onClick={()=> {scrollToComponent(props.photosRef, { offset: -100, align: 'middle', duration: 500, ease:'inCirc'})}}>photos</a></li>
+                                    <li><a onClick={()=> {scrollToComponent(props.friendsRef, { offset: -100, align: 'middle', duration: 500, ease:'inCirc'})}}>friends</a></li>
+                                    <li><a onClick={()=> {scrollToComponent(props.moreRef, { offset: -100, align: 'middle', duration: 500, ease:'inCirc'})}}>more</a></li>
                                     <li className="d-inline-block d-md-none"><a href="profile.html">edit profile</a></li>
                                 </ul>
                             </nav>

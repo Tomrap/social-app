@@ -53,29 +53,35 @@ class Firebase {
       return user;
     }
 
+  // getProfileImages = async (docRef) => {
+  //   return await this.db.
+  // }
 
-  getAllBurgers = async () => {
-    let querySnapshot = await this.db.collection("burgers").get();
-    let burgerList = [];
-    querySnapshot.forEach((doc) => {
-      burgerList.push(doc.data());
-  });
-    return burgerList;
-  }
 
-  listenToDatabase = (handler) => {
-    this.db.collection("burgers").onSnapshot((querySnapshot) => {
-      let burgerList = [];
-      querySnapshot.forEach((doc) => {
-          burgerList.push(doc.data());
-      });
-      handler(burgerList);
-    });
-  }
 
-  //only changes
-  listenToDatabaseChanges = (handler) => {
-    this.db.collection("burgers").onSnapshot(snapshot => handler(snapshot))
-  }
+
+  // getAllBurgers = async () => {
+  //   let querySnapshot = await this.db.collection("burgers").get();
+  //   let burgerList = [];
+  //   querySnapshot.forEach((doc) => {
+  //     burgerList.push(doc.data());
+  // });
+  //   return burgerList;
+  // }
+
+  // listenToDatabase = (handler) => {
+  //   this.db.collection("burgers").onSnapshot((querySnapshot) => {
+  //     let burgerList = [];
+  //     querySnapshot.forEach((doc) => {
+  //         burgerList.push(doc.data());
+  //     });
+  //     handler(burgerList);
+  //   });
+  // }
+
+  // //only changes
+  // listenToDatabaseChanges = (handler) => {
+  //   this.db.collection("burgers").onSnapshot(snapshot => handler(snapshot))
+  // }
 }
   export default Firebase;

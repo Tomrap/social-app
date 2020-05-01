@@ -21,12 +21,12 @@
 	// });
 
 	//Background Image JS start
-	var bgSelector = $(".bg-img");
-	bgSelector.each(function (index, elem) {
-		var element = $(elem),
-			bgSource = element.data('bg');
-		element.css('background-image', 'url(' + bgSource + ')');
-	});
+	// var bgSelector = $(".bg-img");
+	// bgSelector.each(function (index, elem) {
+	// 	var element = $(elem),
+	// 		bgSource = element.data('bg');
+	// 	element.css('background-image', 'url(' + bgSource + ')');
+	// });
 
     // video player active js
 	var plyrVideo = new Plyr('.plyr-video'),

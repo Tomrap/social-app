@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { FirebaseContext } from '../firebase';
-import { Redirect } from "react-router-dom";
-import { UserContext } from "../login/UserProvider";
+import LoginRedirect from './loginRedirect'
 
 
 class Login extends Component {
@@ -26,35 +25,25 @@ class Login extends Component {
     }
 
     render() { 
-        return <UserContext.Consumer>
-            {context => 
-            {
-                if(context) {
-                    return <Redirect to="/ProfilePage"/>
-                } else {
-                    return (
-                        <div className="col-lg-6">
-                            <div className="login-area">
-                                <div className="row align-items-center">
-                                    <div className="col-12 col-sm">
-                                        <input type="text" placeholder="Email or Username" className="single-field" onChange={(event) => this.updateValue(event,"name")}/>
-                                    </div>
-                                    <div className="col-12 col-sm">
-                                        <input type="password" placeholder="Password" className="single-field" onChange={(event) => this.updateValue(event,"password")}/>
-                                    </div>
-                                    <div className="col-12 col-sm-auto">
-                                        <button className="login-btn" onClick={this.formHandler}>Login</button>
-                                    </div>
-                                </div>
-                            </div>
+        return (
+            <div className="col-lg-6">
+                <div className="login-area">
+                    <div className="row align-items-center">
+                        <div className="col-12 col-sm">
+                            <input type="text" placeholder="Email or Username" className="single-field" onChange={(event) => this.updateValue(event,"name")}/>
                         </div>
-                        )
-                }
-        }
-        }
-        </UserContext.Consumer>
+                        <div className="col-12 col-sm">
+                            <input type="password" placeholder="Password" className="single-field" onChange={(event) => this.updateValue(event,"password")}/>
+                        </div>
+                        <div className="col-12 col-sm-auto">
+                            <button className="login-btn" onClick={this.formHandler}>Login</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            )
     }
 }
 Login.contextType = FirebaseContext;  
 
-export default Login;
+export default LoginRedirect(Login);

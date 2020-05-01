@@ -1,7 +1,7 @@
 import React , { useContext } from 'react';
 import ChatMessage from '../messages/chatMessage'
 import SingleSlide from '../friends/singleSlide'
-import $ from 'jquery'
+
 import 'react-perfect-scrollbar/dist/css/styles.css';
 import PerfectScrollbar from 'react-perfect-scrollbar'
 
