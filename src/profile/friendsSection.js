@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Friend from './friend'
 
-const FriendsSection = (props) => {
+class FriendsSection extends Component {
+
+    render() {
 
     return  (
         <div className="friends-section">
@@ -41,6 +43,7 @@ const FriendsSection = (props) => {
         </div>
     </div>
     )
+    }
 }
 
 export default FriendsSection;

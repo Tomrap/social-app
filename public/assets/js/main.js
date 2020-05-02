@@ -73,34 +73,34 @@
 
 
 	// light gallery active js
-	$(document).ready(function() {
-        $(".img-popup").lightGallery(); 
+	// $(document).ready(function() {
+    //     $(".img-popup").lightGallery(); 
 
-		// light gallery images
-        $(".img-gallery").lightGallery({
-			selector: ".gallery-selector",
-			hash: false
-		}); 
-	});
+	// 	// light gallery images
+    //     $(".img-gallery").lightGallery({
+	// 		selector: ".gallery-selector",
+	// 		hash: false
+	// 	}); 
+	// });
 
-	$('.gallery-toggle').on('click', function () {
+	// $('.gallery-toggle').on('click', function () {
 
-	var productThumb = $(this).find(".product-thumb-large-view img"),
-			imageSrcLength = productThumb.length,
-			images = [];
-		for (var i = 0; i < imageSrcLength; i++) {
-			images[i] = {"src": productThumb[i].src, "thumb": productThumb[i].src};
-		}
+	// var productThumb = $(this).find(".product-thumb-large-view img"),
+	// 		imageSrcLength = productThumb.length,
+	// 		images = [];
+	// 	for (var i = 0; i < imageSrcLength; i++) {
+	// 		images[i] = {"src": productThumb[i].src, "thumb": productThumb[i].src};
+	// 	}
 
-		$(this).lightGallery({
-			dynamic: true,
-			actualSize: false,
-			hash: false,
-			index: 0,
-			dynamicEl: images
-		});
+	// 	$(this).lightGallery({
+	// 		dynamic: true,
+	// 		actualSize: false,
+	// 		hash: false,
+	// 		index: 0,
+	// 		dynamicEl: images
+	// 	});
 
-	});
+	// });
 
 	// photo filter active js
 	$('.photo-filter').imagesLoaded( function() {

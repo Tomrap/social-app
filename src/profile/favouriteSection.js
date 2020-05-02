@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const FavouriteSection = (props) => {
+class FavouriteSection extends Component {
+
+    render() {
 
     return  (
         <div className="faborite-books">
@@ -8,7 +10,7 @@ const FavouriteSection = (props) => {
             <div className="row">
                 <div className="col-12">
                     <div className="content-box">
-                        <h5 className="content-title">{props.name}</h5>
+                        <h5 className="content-title">{this.props.name}</h5>
                         <div className="content-body">
                             <div className="row favorite-item-carousel">
                                 <div className="col">
@@ -68,6 +70,7 @@ const FavouriteSection = (props) => {
         </div>
     </div>
     )
+    }
 }
 
 export default FavouriteSection;

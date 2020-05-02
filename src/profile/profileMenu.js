@@ -23,9 +23,9 @@ const ProfileMenu = (props) => {
                                 <ul className="main-menu">
                                     <li className="active"><a href="#">timeline</a></li>
                                     <li><a onClick={()=> {scrollToComponent(props.aboutRef, { offset: -100, align: 'middle', duration: 500, ease:'inCirc'})}}>about</a></li>
-                                    <li><a onClick={()=> {scrollToComponent(props.photosRef, { offset: -100, align: 'middle', duration: 500, ease:'inCirc'})}}>photos</a></li>
-                                    <li><a onClick={()=> {scrollToComponent(props.friendsRef, { offset: -100, align: 'middle', duration: 500, ease:'inCirc'})}}>friends</a></li>
-                                    <li><a onClick={()=> {scrollToComponent(props.moreRef, { offset: -100, align: 'middle', duration: 500, ease:'inCirc'})}}>more</a></li>
+                                    <li><a onClick={()=> {scrollToComponent(props.photosRef, { offset: 0, align: 'bottom', duration: 500, ease:'inCirc'})}}>photos</a></li>
+                                    <li><a onClick={()=> {scrollToComponent(props.friendsRef, { offset: 0, align: 'bottom', duration: 500, ease:'inCirc'})}}>friends</a></li>
+                                    <li><a onClick={()=> {scrollToComponent(props.moreRef, { offset: 0, align: 'bottom', duration: 500, ease:'inCirc'})}}>more</a></li>
                                     <li className="d-inline-block d-md-none"><a href="profile.html">edit profile</a></li>
                                 </ul>
                             </nav>

@@ -44,7 +44,7 @@ class ProfilePage extends Component {
                 <ProfileMenu aboutRef={this.ProfileAbout} photosRef={this.PhotoSection} friendsRef={this.FriendsSection} moreRef={this.FavouriteSection} profileImage={this.state.profileImages.profileImage}></ProfileMenu>
                 <SecondaryMenu></SecondaryMenu>
                 <ProfileAbout ref={(section) => { this.ProfileAbout = section; }} userDetailRef={this.props.user.userDetailRef}></ProfileAbout>
-                <PhotoSection ref={(section) => { this.PhotoSection = section; }}></PhotoSection>
+                <PhotoSection ref={(section) => { this.PhotoSection = section; }} photosRef={this.props.user.photosRef}></PhotoSection>
                 <FriendsSection ref={(section) => { this.FriendsSection = section; }}></FriendsSection>
                 <FavouriteSection ref={(section) => { this.FavouriteSection = section; }} name='Favourite Books'></FavouriteSection>
                 <FavouriteSection name='Favourite Sports'></FavouriteSection>
