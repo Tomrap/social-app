@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
+import FavouriteElement from './favouriteElement'
+import ElementsCreator from './elementsCreator'
 
 class FavouriteSection extends Component {
+
+    createFavElement(photosCollection, index) {
+        let url = photosCollection[index][1]
+        let name = photosCollection[index][0];
+        return <FavouriteElement key={url} name={name} src={url} ></FavouriteElement>
+    }
 
     render() {
 
@@ -11,59 +19,7 @@ class FavouriteSection extends Component {
                 <div className="col-12">
                     <div className="content-box">
                         <h5 className="content-title">{this.props.name}</h5>
-                        <div className="content-body">
-                            <div className="row favorite-item-carousel">
-                                <div className="col">
-                                    <figure className="favorite-item">
-                                        <a href="#">
-                                            <img src="assets/images/books/book-1.jpg" alt=""/>
-                                        </a>
-                                    </figure>
-                                </div>
-                                <div className="col">
-                                    <figure className="favorite-item">
-                                        <a href="#">
-                                            <img src="assets/images/books/book-2.jpg" alt=""/>
-                                        </a>
-                                    </figure>
-                                </div>
-                                <div className="col">
-                                    <figure className="favorite-item">
-                                        <a href="#">
-                                            <img src="assets/images/books/book-3.jpg" alt=""/>
-                                        </a>
-                                    </figure>
-                                </div>
-                                <div className="col">
-                                    <figure className="favorite-item">
-                                        <a href="#">
-                                            <img src="assets/images/books/book-4.jpg" alt=""/>
-                                        </a>
-                                    </figure>
-                                </div>
-                                <div className="col">
-                                    <figure className="favorite-item">
-                                        <a href="#">
-                                            <img src="assets/images/books/book-5.jpg" alt=""/>
-                                        </a>
-                                    </figure>
-                                </div>
-                                <div className="col">
-                                    <figure className="favorite-item">
-                                        <a href="#">
-                                            <img src="assets/images/books/book-6.jpg" alt=""/>
-                                        </a>
-                                    </figure>
-                                </div>
-                            </div>
-                            <div className="row">
-                                <div className="col-12">
-                                    <div className="load-more text-center">
-                                        <button className="load-more-btn">load more</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <ElementsCreator name={this.props.name} refe={this.props.refe} createElement={this.createFavElement}></ElementsCreator>
                     </div>
                 </div>
             </div>
