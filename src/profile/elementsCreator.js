@@ -3,11 +3,11 @@ import { LightgalleryProvider } from "react-lightgallery";
 
 class ElementsCreator extends Component {
 
-    elementsToDisplay = 3
+    elementsToDisplay = this.props.numberOfElements
 
     state = {
-        photosCollection: {},
-        smallPhotos: [],
+        databaseCollection: {},
+        currentElements: [],
         buttonDescription: 'load more'
     }
 
@@ -25,24 +25,24 @@ class ElementsCreator extends Component {
     componentDidMount() { 
         this.props.refe.get().then((result)=> {
             const result1 = result.data()
-            let photosCollection = Object.entries(result1);
-            photosCollection.sort(this.comparer)
-            let smallPhotos = [];
+            let databaseCollection = Object.entries(result1);
+            databaseCollection.sort(this.comparer)
+            let currentElements = [];
             for (let index = 0; index < this.elementsToDisplay; index++) {
-                smallPhotos.push(this.props.createElement(photosCollection, index))
+                currentElements.push(this.props.createElement(databaseCollection, index))
             }
-            this.setState({
-                photosCollection : photosCollection,
-                smallPhotos : smallPhotos
-            })
+            this.props.promisesResolver(currentElements, (list) => {this.setState({
+                databaseCollection : databaseCollection,
+                currentElements : list
+            })})
         })
     }
 
     handler = () => {
         if(this.state.buttonDescription == 'load less') {
-            let smallPhotos = [];
+            let currentElements = [];
             let newLastIndex
-            const lastIndex = this.state.photosCollection.length;
+            const lastIndex = this.state.databaseCollection.length;
             for (let index = 0; index < this.elementsToDisplay; index++) {
                 if(lastIndex%this.elementsToDisplay == index) {
                     if(index == 0) {
@@ -53,52 +53,70 @@ class ElementsCreator extends Component {
                 }                
             }
             for (let index = 0; index < newLastIndex; index++) {
-                smallPhotos.push(this.props.createElement(this.state.photosCollection, index))
+                currentElements.push(this.props.createElement(this.state.databaseCollection, index))
             }
-            this.setState({
+            this.props.promisesResolver(currentElements, (list) => {this.setState({
                 buttonDescription: "load more",
-                smallPhotos: smallPhotos
-            })
+                currentElements: list
+            })})
         } else {
             let buttonDescription = this.state.buttonDescription;
-            let smallPhotos = [...this.state.smallPhotos];
-            const length = smallPhotos.length;
+            let currentElementsCopy = [...this.state.currentElements];
+            let currentElements = [];
+            const length = currentElementsCopy.length;
             for (let index = length; index < length + this.elementsToDisplay; index++) {
-                if(index>=this.state.photosCollection.length) {
+                if(index>=this.state.databaseCollection.length) {
                     buttonDescription = "load less"
                     break
                 }
-                smallPhotos.push(this.props.createElement(this.state.photosCollection, index))
+                currentElements.push(this.props.createElement(this.state.databaseCollection, index))
             }
-            this.setState({
+            this.props.promisesResolver(currentElements, (list) => {this.setState({
                 buttonDescription: buttonDescription,
-                smallPhotos: smallPhotos
-            })
+                currentElements: currentElementsCopy.concat(list)
+            })})
         }
     }
 
     render() {
 
-    const list = this.props.name == "photos" ? 
-        <LightgalleryProvider>
-            {this.state.smallPhotos}
-        </LightgalleryProvider>
-    :  this.state.smallPhotos 
-
-    return  (
-        <div className="content-body">
-            <div className="row favorite-item-carousel">
-                {list}
+    const loadMoreButton = 
+        <div className="col-12">
+            <div className="load-more text-center">
+                <button className="load-more-btn"onClick={this.handler}>{this.state.buttonDescription}</button>
             </div>
-            <div className="row">
-                <div className="col-12">
-                    <div className="load-more text-center">
-                        <button className="load-more-btn"onClick={this.handler}>{this.state.buttonDescription}</button>
-                    </div>
+        </div>  
+
+    if(this.props.name == "friends") {
+        return (
+        <div className="content-box">
+            <h5 className="content-title">friends</h5>
+            <div className="content-body">
+                <div className="row mt--20">
+                    {this.state.currentElements}
+                    {loadMoreButton}
                 </div>
             </div>
         </div>
         )
+    } else {
+        const list = this.props.name == "photos" ? 
+            <LightgalleryProvider>
+                {this.state.currentElements}
+            </LightgalleryProvider>
+        :  this.state.currentElements 
+
+        return  (
+            <div className="content-body">
+                <div className="row favorite-item-carousel">
+                    {list}
+                </div>
+                <div className="row">
+                    {loadMoreButton}
+                </div>
+            </div>
+            )
+        }
     }
 }
 

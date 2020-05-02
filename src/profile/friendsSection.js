@@ -1,7 +1,26 @@
 import React, { Component } from 'react';
 import Friend from './friend'
+import ElementsCreator from './elementsCreator'
 
 class FriendsSection extends Component {
+
+    async createFriend(photosCollection, index) {
+        const userRef =  photosCollection[index][1]
+        const userResult = await userRef.get()
+        const user = userResult.data()
+        const name = user.firstName + user.lastName
+        const imagesRef = user.imagesRef
+        const imagesResult = await imagesRef.get()
+        const images = imagesResult.data()
+        const profileImageThumb = images.profileImage
+        return <Friend key={profileImageThumb} name={name} src={profileImageThumb}></Friend>
+    }
+
+    promiseResolver = (promises, callback) => {
+        Promise.all(promises).then(arrOfResults => {
+            callback(arrOfResults)
+        })
+    }
 
     render() {
 
@@ -10,34 +29,8 @@ class FriendsSection extends Component {
         <div className="container">
             <div className="row">
                 <div className="col-12">
-                    <div className="content-box">
-                        <h5 className="content-title">friends</h5>
-                        <div className="content-body">
-                            <div className="row mt--20">
-                                <Friend></Friend>
-                                <Friend></Friend>
-                                <Friend></Friend>
-                                <Friend></Friend>
-                                <Friend></Friend>
-                                <Friend></Friend>
-                                <Friend></Friend>
-                                <Friend></Friend>
-                                <Friend></Friend>
-                                <Friend></Friend>
-                                <Friend></Friend>
-                                <Friend></Friend>
-                                <Friend></Friend>
-                                <Friend></Friend>
-                                <Friend></Friend>
-                                <Friend></Friend>
-                                <div className="col-12">
-                                    <div className="load-more text-center">
-                                        <button className="load-more-btn">load more</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <ElementsCreator name="friends" refe={this.props.refe} createElement={this.createFriend} 
+                        promisesResolver={(this.promiseResolver)} numberOfElements={4}></ElementsCreator>
                 </div>
             </div>
         </div>

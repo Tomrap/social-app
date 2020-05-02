@@ -19,7 +19,8 @@ class FavouriteSection extends Component {
                 <div className="col-12">
                     <div className="content-box">
                         <h5 className="content-title">{this.props.name}</h5>
-                        <ElementsCreator name={this.props.name} refe={this.props.refe} createElement={this.createFavElement}></ElementsCreator>
+                        <ElementsCreator name={this.props.name} refe={this.props.refe} createElement={this.createFavElement} 
+                            promisesResolver={(a,b)=>{b(a)}} numberOfElements={3}></ElementsCreator>
                     </div>
                 </div>
             </div>

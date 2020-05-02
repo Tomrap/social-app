@@ -20,7 +20,8 @@ class PhotoSection extends Component {
                     <div className="col-12">
                         <div className="content-box">
                             <h5 className="content-title">photos</h5>
-                            <ElementsCreator name="photos" refe={this.props.photosRef} createElement={this.createPhoto}></ElementsCreator>
+                            <ElementsCreator name="photos" refe={this.props.photosRef} createElement={this.createPhoto} 
+                                promisesResolver={(a,b)=>{b(a)}} numberOfElements={3}></ElementsCreator>
                         </div>
                     </div>
                 </div>

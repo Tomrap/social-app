@@ -8,13 +8,12 @@ const Friend = (props) => {
             <div className="profile-thumb">
                 <a href="#">
                     <figure className="profile-thumb-middle">
-                        <img src="assets/images/profile/profile-small-1.jpg" alt="profile picture"/>
+                        <img src={props.src} alt="profile picture"/>
                     </figure>
                 </a>
             </div>
             <div className="posted-author">
-                <h6 className="author"><a href="profile.html">Kate Midiltoin</a></h6>
-                <button className="add-frnd">add friend</button>
+                <h6 className="author"><a href="profile.html">{props.name}</a></h6>
             </div>
         </div>
     </div>
