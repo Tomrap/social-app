@@ -11,7 +11,7 @@ import PhotoSection from '../profile/photoSection'
 import FriendsSection from '../profile/friendsSection'
 import FavouriteSection from '../profile/favouriteSection'
 import { FirebaseContext } from '../firebase';
-import LoginRedirect from './loginRedirect'
+import ProfileUserWrapper from './profileUserWrapper'
 
 class ProfilePage extends Component {
 
@@ -59,4 +59,4 @@ class ProfilePage extends Component {
       
 }
 ProfilePage.contextType = FirebaseContext;  
-export default LoginRedirect(ProfilePage);    
+export default ProfileUserWrapper(ProfilePage);    

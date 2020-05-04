@@ -4,7 +4,6 @@ import MobileHeader from '../header/mobileHeader'
 import MobileFooter from '../footer/mobileFooter'
 import Footer from '../footer/footer'
 import ScrollTop from '../footer/scrollTop'
-import LoginRedirect from './loginRedirect'
 
 class MainPage extends Component {
 
@@ -1015,4 +1014,4 @@ class MainPage extends Component {
             )
     }
 }
-export default LoginRedirect(MainPage);    
+export default MainPage;    

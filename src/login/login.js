@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { FirebaseContext } from '../firebase';
-import LoginRedirect from './loginRedirect'
+
 
 
 class Login extends Component {
@@ -46,4 +46,4 @@ class Login extends Component {
 }
 Login.contextType = FirebaseContext;  
 
-export default LoginRedirect(Login);
+export default Login;

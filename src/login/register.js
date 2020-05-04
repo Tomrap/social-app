@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import countryList from 'react-select-country-list'
 import { FirebaseContext } from '../firebase';
-import LoginRedirect from './loginRedirect'
 
 class Register extends Component {
     constructor(props) {
@@ -88,4 +87,4 @@ class Register extends Component {
     }       
 }
 Register.contextType = FirebaseContext;      
-export default LoginRedirect(Register);
+export default Register
