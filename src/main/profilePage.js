@@ -11,7 +11,6 @@ import PhotoSection from '../profile/photoSection'
 import FriendsSection from '../profile/friendsSection'
 import FavouriteSection from '../profile/favouriteSection'
 import { FirebaseContext } from '../firebase';
-import ProfileUserWrapper from './profileUserWrapper'
 
 class ProfilePage extends Component {
 
@@ -45,7 +44,7 @@ class ProfilePage extends Component {
                 <SecondaryMenu></SecondaryMenu>
                 <ProfileAbout ref={(section) => { this.ProfileAbout = section; }} userDetailRef={this.props.user.userDetailRef}></ProfileAbout>
                 <PhotoSection ref={(section) => { this.PhotoSection = section; }} photosRef={this.props.user.photosRef}></PhotoSection>
-                <FriendsSection ref={(section) => { this.FriendsSection = section; }} refe={this.props.user.friendsRef}></FriendsSection>
+                <FriendsSection ref={(section) => { this.FriendsSection = section; }} refe={this.props.user.friendsRef} history={this.props.history}></FriendsSection>
                 <FavouriteSection ref={(section) => { this.FavouriteSection = section; }} refe={this.props.user.favBooksRef} name='Favourite Books'></FavouriteSection>
                 <FavouriteSection refe={this.props.user.favSportsRef} name='Favourite Sports'></FavouriteSection>
             </div>

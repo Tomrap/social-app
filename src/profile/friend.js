@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
-import { Redirect } from "react-router-dom";
 
 const Friend = (props) => {
 
     const [redirect, setRedirect] = useState("");
 
     if(redirect != "" ) {
-        return (
-            <Redirect to={`/ProfilePage?${redirect}`}></Redirect>
-        )
+        props.history.push(`/ProfilePage?${redirect}`)
+        return <div>Loader</div>
     } else {
         return  (
             <div className="col-lg-3 col-sm-6">

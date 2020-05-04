@@ -23,7 +23,7 @@ const Welcome = (props) => {
                                     </div>
                                 </div>
                             </div>
-                            <Login></Login>
+                            <Login {...props}></Login>
                         </div>
                     </div>
                 </div>

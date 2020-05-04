@@ -30,9 +30,8 @@ class Firebase {
     return
   }
 
-  signin(email, password) {
-    this.auth().signInWithEmailAndPassword(email, password)
-    .catch(error => console.log(error.message))
+  async signin(email, password) {
+    return await this.auth().signInWithEmailAndPassword(email, password)
   }
   
   registerUser =  async (user) => {

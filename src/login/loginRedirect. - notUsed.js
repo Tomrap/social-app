@@ -1,9 +1,6 @@
 import React from 'react';
-import { UserContext } from "../login/UserProvider";
-import { Redirect } from "react-router-dom";
-import MainPage from '../main/mainPage'
+import { UserContext } from "./UserProvider";
 import Welcome from './welcome'
-import ProfilePage from '../main/profilePage'
 
 
 //if returns redirect will set the right url and thus back and forth browser arrow will work however everytime url changes 
@@ -12,6 +9,8 @@ import ProfilePage from '../main/profilePage'
 // to sign in page if not logged in and get user data and pass it to component if user logged in 
 // cause every redirect will force you again to check if user is logged in which means each page would need to have its own logic to check if user is logged in
 // which is probably what should be done - later
+
+//seems like all those problems could actual be solved by using history.push instead of redirect since this does not change firebase user state
 const LoginRedirect = (WrappedObject, props) => {  
     return (
         <UserContext.Consumer>

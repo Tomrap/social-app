@@ -11,6 +11,8 @@ class UserProvider extends Component {
   componentDidMount = async () => {
       const context = this.context;
       context.getAuth()().onAuthStateChanged(async userAuth => {
+        //whenere url is changed (manually or by redirect) this will trigger twice - first with userAuth null and then with actual user
+        //however if we use history.push this does not get triggered
         if(userAuth != null) {
             const user = await context.getUser(userAuth.uid);
             this.setState({

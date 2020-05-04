@@ -13,16 +13,16 @@ class ProfileUserWrapper extends Component {
 
   render() {
         const context = this.context
-        if(this.props.location.location.search != "" && this.state.userId != this.props.location.location.search) {
-            context.getUser(this.props.location.location.search.substr(1)).then(result=>{          
+        if(this.props.location.search != "" && this.state.userId != this.props.location.search) {
+            context.getUser(this.props.location.search.substr(1)).then(result=>{          
                 this.setState({
                     user: result,
-                    userId: this.props.location.location.search
+                    userId: this.props.location.search
                 })
             })
             return <div>Loader</div>
         } else {
-            return <ProfilePage user={this.state.user} />
+            return <ProfilePage user={this.state.user} history={this.props.history} />
         }
     }  
 }

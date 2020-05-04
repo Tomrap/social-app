@@ -12,7 +12,9 @@ class Login extends Component {
 
     formHandler = () => {
         let context = this.context;
-        context.signin(this.state.name, this.state.password)
+        context.signin(this.state.name, this.state.password).then(() => {
+            return this.props.history.push("/ProfilePage")
+        })
     }
 
     updateValue = (event, field) => {
