@@ -13,7 +13,7 @@ class FriendsSection extends Component {
         const imagesResult = await imagesRef.get()
         const images = imagesResult.data()
         const profileImageThumb = images.profileImage
-        return <Friend key={profileImageThumb} name={name} src={profileImageThumb}></Friend>
+        return <Friend key={profileImageThumb} name={name} src={profileImageThumb} userId = {user.userRef}></Friend>
     }
 
     promiseResolver = (promises, callback) => {

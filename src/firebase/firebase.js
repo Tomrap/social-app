@@ -44,8 +44,8 @@ class Firebase {
       )
   }
 
-  getUser = async (userAuth) => {
-      let querySnapshot = await this.db.collection("users").where("userRef", "==", userAuth.uid).limit(1).get()
+  getUser = async (userId) => {
+      let querySnapshot = await this.db.collection("users").where("userRef", "==", userId).limit(1).get()
       let user;
       querySnapshot.forEach((doc) => {
         user = doc.data();

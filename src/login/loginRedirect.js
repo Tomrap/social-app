@@ -11,6 +11,7 @@ import ProfilePage from '../main/profilePage'
 // persistence to one-page in firebase), however this relogins means that it is very difficult to redirect user 
 // to sign in page if not logged in and get user data and pass it to component if user logged in 
 // cause every redirect will force you again to check if user is logged in which means each page would need to have its own logic to check if user is logged in
+// which is probably what should be done - later
 const LoginRedirect = (WrappedObject, props) => {  
     return (
         <UserContext.Consumer>

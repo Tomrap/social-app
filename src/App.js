@@ -1,17 +1,17 @@
 import React from 'react';
 import Welcome from './login/welcome'
 import MainPage from './main/mainPage'
-import ProfilePage from './main/profilePage'
+import ProfileUserWrapper from './main/profileUserWrapper'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import UserProvider from "./login/UserProvider";
 import LoginRedirect from './login/loginRedirect'
 
 
 const VIEWS = [ 
-  ["Welcome", LoginRedirect.bind(null,ProfilePage)],
+  ["Welcome", LoginRedirect.bind(null,ProfileUserWrapper)],
   ["MainPage", LoginRedirect.bind(null,MainPage)],
-  ["ProfilePage", LoginRedirect.bind(null,ProfilePage)],
-  ["", LoginRedirect.bind(null, ProfilePage)]
+  ["ProfilePage", LoginRedirect.bind(null,ProfileUserWrapper)],
+  ["", LoginRedirect.bind(null, ProfileUserWrapper)]
 ];
 
 const Content = () => {

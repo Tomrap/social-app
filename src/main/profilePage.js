@@ -59,4 +59,4 @@ class ProfilePage extends Component {
       
 }
 ProfilePage.contextType = FirebaseContext;  
-export default ProfileUserWrapper(ProfilePage);    
+export default ProfilePage;    
