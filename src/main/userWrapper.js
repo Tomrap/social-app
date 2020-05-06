@@ -1,9 +1,10 @@
 import React , { Component }  from 'react';
 import { FirebaseContext } from '../firebase';
-import ProfilePage from './profilePage'
+import ProfilePage from '../main/profilePage'
+import { withRouter } from "react-router";
 
 
-class ProfileUserWrapper extends Component {    
+class UserWrapper extends Component {    
     constructor(props) {
         super(props);
         this.state = {
@@ -20,12 +21,13 @@ class ProfileUserWrapper extends Component {
                     userId: this.props.location.search
                 })
             })
-            return <div>Loader</div>
+            //loading
+            return <div></div>
         } else {
-            return <ProfilePage user={this.state.user} history={this.props.history} />
+            return <ProfilePage user={this.state.user} />
         }
     }  
 }
-ProfileUserWrapper.contextType = FirebaseContext
-export default ProfileUserWrapper
+UserWrapper.contextType = FirebaseContext
+export default withRouter(UserWrapper)
     

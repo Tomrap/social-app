@@ -52,6 +52,19 @@ class Firebase {
       return user;
     }
 
+    getUserDoc = async (userId) => {
+      let querySnapshot = await this.db.collection("users").where("userRef", "==", userId).limit(1).get()
+      let userDoc;
+      querySnapshot.forEach((doc) => {
+        userDoc = doc;
+      });
+      return userDoc;
+    }  
+
+  updateUser = async (user, userId) => {
+    await this.db.collection("users").doc(userId).set(user);
+  }  
+
   // getProfileImages = async (docRef) => {
   //   return await this.db.
   // }

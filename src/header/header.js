@@ -35,7 +35,7 @@ const Header = (props) => {
                             <div className="col-md-5">
                                 <div className="header-top-right d-flex align-items-center justify-content-end">
                                     <SearchBox></SearchBox>
-                                    <ProfileSettingsDropdown ></ProfileSettingsDropdown>
+                                    <ProfileSettingsDropdown user={props.user}></ProfileSettingsDropdown>
                                 </div>
                             </div>
                         </div>

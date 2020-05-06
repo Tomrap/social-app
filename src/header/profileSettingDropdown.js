@@ -1,6 +1,7 @@
-import React , { useContext } from 'react';
+import React from 'react';
 import { FirebaseContext } from '../firebase';
 import {SlideDown} from 'react-slidedown'
+import { withRouter } from "react-router";
 
 const ProfileSettingsDropdown = (props) => {
 
@@ -24,14 +25,14 @@ const ProfileSettingsDropdown = (props) => {
             {open ? 
                 <div className="profile-dropdown">
                     <div className="profile-head">
-                        <h5 className="name"><a href="#">Madison Howard</a></h5>
-                        <a className="mail" href="#">mailnam@mail.com</a>
+                        <h5 className="name"><a>{props.user.firstName + " " + props.user.lastName}</a></h5>
+                        <a className="mail">{props.user.email}</a>
                     </div>
                     <div className="profile-body">
                         <ul>
-                            <li><a href="profile.html"><i className="flaticon-user"></i>Profile</a></li>
-                            <li><a href="#"><i className="flaticon-message"></i>Inbox</a></li>
-                            <li><a href="#"><i className="flaticon-document"></i>Activity</a></li>
+                            <li><a onClick={()=>{props.history.push(`/ProfilePage?${props.user.userRef}`)}}><i className="flaticon-user"></i>Profile</a></li>
+                            <li><a><i className="flaticon-message"></i>Inbox</a></li>
+                            <li><a><i className="flaticon-document"></i>Activity</a></li>
                         </ul>
                         <ul>
                             <li><a href="#"><i className="flaticon-settings"></i>Setting</a></li>
@@ -52,4 +53,4 @@ const ProfileSettingsDropdown = (props) => {
     )
 }
 
-export default ProfileSettingsDropdown
+export default withRouter(ProfileSettingsDropdown)

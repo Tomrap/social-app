@@ -1,16 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { withRouter } from "react-router";
 
 const Friend = (props) => {
-
-    const [redirect, setRedirect] = useState("");
-
-    if(redirect != "" ) {
-        props.history.push(`/ProfilePage?${redirect}`)
-        return <div>Loader</div>
-    } else {
         return  (
             <div className="col-lg-3 col-sm-6">
-            <div className="friend-list-view" onClick={setRedirect.bind(null,props.userId)}>
+            <div className="friend-list-view" onClick={()=>{props.history.push(`/ProfilePage?${props.userId}`)}}>
                 <div className="profile-thumb">
                     <a>
                         <figure className="profile-thumb-middle">
@@ -24,7 +18,6 @@ const Friend = (props) => {
             </div>
         </div>
         )
-    }
 }
 
-export default Friend;
+export default withRouter(Friend);
