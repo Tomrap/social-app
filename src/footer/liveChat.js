@@ -31,7 +31,7 @@ const LiveChat = (props) => {
             </div>
             <div className={classNames}>
                 <div className="live-chat-title"> 
-                    <SingleSlide></SingleSlide>
+                    {/* <SingleSlide></SingleSlide> */}
                     <div className="posted-author">
                         <h6 className="author"><a href="profile.html">Robart Marloyan</a></h6>
                         <span className="active-pro">active now</span>

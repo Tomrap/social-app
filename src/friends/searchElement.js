@@ -6,7 +6,7 @@ const SearchElement = (props) => {
     return (
         <li className="d-flex align-items-center profile-active">
         
-            <ProfileThumb></ProfileThumb>
+            {/* <ProfileThumb></ProfileThumb> */}
         
             <div className="posted-author">
                 <h6 className="author">Jon Wilime</h6>

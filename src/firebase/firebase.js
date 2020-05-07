@@ -65,6 +65,10 @@ class Firebase {
     await this.db.collection("users").doc(userId).set(user);
   }  
 
+  listenToDocumentChange = (docId, callback) => {
+    this.db.collection("users").doc(docId).onSnapshot((doc) => callback(doc))
+  }  
+
   // getProfileImages = async (docRef) => {
   //   return await this.db.
   // }

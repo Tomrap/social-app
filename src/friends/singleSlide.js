@@ -5,7 +5,7 @@ const SingleSlide = (props) => {
 
     return (
         <div className="single-slide">
-            <ProfileThumb></ProfileThumb>
+            <ProfileThumb photoRef={props.photoRef}></ProfileThumb>
         </div>
     )
 }

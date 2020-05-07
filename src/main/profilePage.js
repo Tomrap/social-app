@@ -1,9 +1,4 @@
 import React, { Component } from 'react';
-import Header from '../header/header'
-import MobileHeader from '../header/mobileHeader'
-import MobileFooter from '../footer/mobileFooter'
-import Footer from '../footer/footer'
-import ScrollTop from '../footer/scrollTop'
 import ProfileMenu from '../profile/profileMenu'
 import SecondaryMenu from '../profile/secondaryMenu'
 import ProfileAbout from '../profile/profileAbout'

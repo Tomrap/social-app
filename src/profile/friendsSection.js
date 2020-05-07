@@ -4,8 +4,8 @@ import ElementsCreator from './elementsCreator'
 
 class FriendsSection extends Component {
 
-    async createFriend(photosCollection, index) {
-        const userRef =  photosCollection[index][1]
+    async createFriend(databaseCollection, index) {
+        const userRef =  databaseCollection[index][1]
         const userResult = await userRef.get()
         const user = userResult.data()
         const name = user.firstName + user.lastName

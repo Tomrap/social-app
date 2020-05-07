@@ -1,15 +1,29 @@
-import React from 'react';
+import React , { useState, useEffect } from 'react';
 
 const ProfileThumb = (props) => {
 
+    let [src, setSrc] = React.useState("");
+
+
+    useEffect(() => {
+        props.photoRef.get().then(result => {
+            let element = result.data()
+            setSrc(element.profileImage) 
+        })
+      });
+
+
     return (
+    src =! "" ?    
     <div className="profile-thumb active profile-active">
-        <a href="#">
+        <a>
             <figure className="profile-thumb-small">
-                <img src="assets/images/profile/profile-small-1.jpg" alt="profile picture"/>
+                <img src={src} alt="profile picture"/>
             </figure>
         </a>
     </div>
+    :
+    <div></div>
     )
 }
 

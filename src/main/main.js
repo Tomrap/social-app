@@ -14,8 +14,8 @@ const Main = (props) => {
             <props.content user={props.user}></props.content>
             {/* UserWrapper */}
             <ScrollTop></ScrollTop>
-            <Footer></Footer>
-            <MobileFooter></MobileFooter>
+            <Footer user={props.user}></Footer>
+            {/* <MobileFooter></MobileFooter> */}
             </body>
             )
      
