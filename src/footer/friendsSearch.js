@@ -1,5 +1,6 @@
 import React , { useContext } from 'react';
 import SearchElement from '../friends/searchElement'
+import PerfectScrollbar from 'react-perfect-scrollbar'
 
 const FriendsSearch = (props) => {
 
@@ -12,13 +13,20 @@ const FriendsSearch = (props) => {
     const close = () => {
         setClassNames(`friend-search-list`)
     }
-
+    
     let slideList =[];
 
-    for (let index = 0; index < 6; index++) {
-        slideList.push(<SearchElement></SearchElement>)
-    }
+    props.activeFriends.sort(props.comparer)
+    props.notActiveFriends.sort(props.comparer)
+    
+    props.activeFriends.forEach(element => {
+        slideList.push(<SearchElement key = {element.imagesRef} element={element}></SearchElement>)
+    });
 
+    props.notActiveFriends.forEach(element => {
+        slideList.push(<SearchElement key = {element.imagesRef} element={element} active={false}></SearchElement>)
+    });
+    
     return (
         <div className="footer-card position-relative">
             <div className="friends-search">
@@ -34,9 +42,11 @@ const FriendsSearch = (props) => {
                     <button className="close-btn" onClick={close} ><i className="flaticon-cross-out"></i></button>
                 </div>
                 <div className="frnd-search-inner custom-scroll">
+                <PerfectScrollbar>
                     <ul>
-                        {slideList}
+                           {slideList}
                     </ul>
+                </PerfectScrollbar>
                 </div>
             </div>
         </div>

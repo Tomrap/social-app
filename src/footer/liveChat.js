@@ -7,8 +7,6 @@ import PerfectScrollbar from 'react-perfect-scrollbar'
 
 const LiveChat = (props) => {
 
-
-
     const [classNames, setClassNames] = React.useState(`chat-output-box`);
 
     const open = () => {

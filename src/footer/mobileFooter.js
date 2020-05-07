@@ -22,7 +22,7 @@ const MobileFooter = (props) => {
                             <div className="card card-small mb-0 active-profile-mob-wrapper">
                                 <div className="active-profiles-mob-wrapper">
                                     <div className="active-profile-mobile">
-                                    <FriendsSlider mobile={true} numberOfSlides={20}></FriendsSlider>
+                                    <FriendsSlider mobile={true} activeFriends={[...props.activeFriends.values()]}></FriendsSlider>
                                     </div>
                                 </div>
                             </div>

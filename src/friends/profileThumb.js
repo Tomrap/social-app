@@ -12,10 +12,14 @@ const ProfileThumb = (props) => {
         })
       });
 
+    let className = "active profile-active"
+    if(props.active == false) {
+        className=""
+    }
 
     return (
     src =! "" ?    
-    <div className="profile-thumb active profile-active">
+    <div className={`profile-thumb ${className}`}>
         <a>
             <figure className="profile-thumb-small">
                 <img src={src} alt="profile picture"/>

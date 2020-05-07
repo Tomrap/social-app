@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from '../header/header'
 import MobileHeader from '../header/mobileHeader'
-import MobileFooter from '../footer/mobileFooter'
 import Footer from '../footer/footer'
 import ScrollTop from '../footer/scrollTop'
 
@@ -15,7 +14,6 @@ const Main = (props) => {
             {/* UserWrapper */}
             <ScrollTop></ScrollTop>
             <Footer user={props.user}></Footer>
-            {/* <MobileFooter></MobileFooter> */}
             </body>
             )
      

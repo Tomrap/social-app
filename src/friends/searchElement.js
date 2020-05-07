@@ -1,16 +1,25 @@
-import React from 'react';
+import React,  { useState, useEffect } from 'react';
 import ProfileThumb from './profileThumb'
 
 const SearchElement = (props) => {
 
+    let [desc, setDesc] = React.useState("");
+
+    useEffect(() => {
+        props.element.userDetailRef.get().then(result => {
+            let element = result.data()
+            setDesc(element.SomethingAboutMe) 
+        })
+      });
+
     return (
         <li className="d-flex align-items-center profile-active">
         
-            {/* <ProfileThumb></ProfileThumb> */}
+        <ProfileThumb photoRef={props.element.imagesRef} active={props.active}></ProfileThumb>
         
             <div className="posted-author">
-                <h6 className="author">Jon Wilime</h6>
-                <p>Many desktop publishing</p>
+                <h6 className="author">{props.element.firstName +" "+ props.element.lastName}</h6>
+                <p>{desc}</p>
             </div>
         </li>
     )

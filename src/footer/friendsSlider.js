@@ -9,15 +9,7 @@ const FriendsSlider = (props) => {
 
     let slideList =[];
 
-    props.activeFriends.sort((a,b) => {
-        if(a.firstName>b.firstName) {
-            return 1;
-        }
-        if(a.firstName<b.firstName) {
-            return -1;
-        }
-        return 0;
-    })
+    props.activeFriends.sort(props.comparer)
     
     props.activeFriends.forEach(element => {
         slideList.push(<SingleSlide key = {element.imagesRef} photoRef={element.imagesRef}></SingleSlide>)
@@ -31,16 +23,18 @@ const FriendsSlider = (props) => {
 }
 export default FriendsSlider
 
+//this needs to be fixed cause it is sometimes displaying wrong amount of slides (underlying data is correct, just display issue)
+
 const regularSettings = {
     speed: 800,
-    slidesToShow: 6,
+    slidesToShow: 7,
     adaptiveHeight: true,
     prevArrow: <button type="button" className="slick-prev"><i className="bi bi-arrow-left-rounded"></i></button>,
     nextArrow: <button type="button" className="slick-next"><i className="bi bi-arrow-right-rounded"></i></button>,
     responsive: [{
         breakpoint: 1200,
         settings: {
-            slidesToShow: 5,
+            slidesToShow: 10,
         }
     },
     {
