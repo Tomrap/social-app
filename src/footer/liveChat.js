@@ -1,42 +1,60 @@
-import React , { useContext } from 'react';
+import React , { Component } from 'react';
 import ChatMessage from '../messages/chatMessage'
-import SingleSlide from '../friends/singleSlide'
 
 import 'react-perfect-scrollbar/dist/css/styles.css';
 import PerfectScrollbar from 'react-perfect-scrollbar'
 
-const LiveChat = (props) => {
+class LiveChat extends Component {
 
-    const [classNames, setClassNames] = React.useState(`chat-output-box`);
-
-    const open = () => {
-        setClassNames(`chat-output-box show`)
+    state = {
+        show: false,
+        clicked : false
     }
 
-    const close = () => {
-        setClassNames(`chat-output-box`)
+    open = () => {
+        this.setState({
+            show: true
+        })
     }
 
+    close = () => {
+        this.setState({
+            show: false,
+            clicked: true
+        })
+    }
+
+    static getDerivedStateFromProps(props, state) {
+        if (props.show  && !state.clicked) {
+          return {
+            show: true
+          };
+        }
+        return {
+            show: false,
+            clicked: false
+        }
+      }
+
+    render() {
     return (
         <div className="footer-card position-relative">
         <div className="live-chat-inner">
-            <div className="chat-text-field">
-                
-                <textarea className="live-chat-field myOwnTextArea" placeholder="Text Message" onClick={open}></textarea>
+            <div className="chat-text-field">   
+                <textarea className="live-chat-field myOwnTextArea" placeholder="Text Message" onClick={this.open}></textarea>
                 <button className="chat-message-send" type="submit" value="submit">
                     <img src="assets/images/icons/plane.png" alt=""/>
                 </button>
             </div>
-            <div className={classNames}>
+            <div className={this.state.show ? `chat-output-box show` : `chat-output-box`}>
                 <div className="live-chat-title"> 
-                    {/* <SingleSlide></SingleSlide> */}
                     <div className="posted-author">
-                        <h6 className="author"><a href="profile.html">Robart Marloyan</a></h6>
-                        <span className="active-pro">active now</span>
+                        <h6 className="author"><a href="profile.html">{this.props.currentUser.name}</a></h6>
+                        <span className="active-pro">{this.props.currentUser.active}</span>
                     </div>
                     <div className="live-chat-settings ml-auto">
                         <button className="chat-settings"><i className="flaticon-settings"></i></button>
-                        <button className="close-btn" data-close="chat-output-box" onClick={close}><i className="flaticon-cross-out"></i></button>
+                        <button className="close-btn" data-close="chat-output-box" onClick={this.close}><i className="flaticon-cross-out"></i></button>
                     </div>
                 </div>
                 <div className="message-list-inner">
@@ -54,6 +72,7 @@ const LiveChat = (props) => {
         </div>
     </div>
     )
+    }
 }
 
 export default LiveChat

@@ -1,10 +1,28 @@
-import React from 'react';
+import React, { Component } from 'react';
 import FriendsSlider from './friendsSlider'
 import FriendsSearch from './friendsSearch'
 import LiveChat from './liveChat'
 
 
-const RegularFooter = (props) => {
+class RegularFooter extends Component  {
+
+    state={
+        currentUser: {
+            name: "",
+            active: ""
+    },
+        show: false
+    }
+
+    setUser = (currentUser, show) => {
+       this.setState({
+           currentUser: currentUser,
+           show: show
+       })
+    }
+
+
+render() {
 
     return (
         <footer className="d-none d-lg-block">
@@ -13,13 +31,16 @@ const RegularFooter = (props) => {
                 <div className="row">
                     <div className="col-12">
                         <div className="footer-wrapper">
-                            <FriendsSearch activeFriends={[...props.activeFriends.values()]} notActiveFriends={[...props.notActiveFriends.values()]} comparer={props.comparer}></FriendsSearch>
+                            <FriendsSearch activeFriends={[...this.props.activeFriends.values()]} 
+                            notActiveFriends={[...this.props.notActiveFriends.values()]} 
+                            comparer={this.props.comparer} clickHandler={this.setUser.bind(this)}></FriendsSearch>
                             <div className="card card-small mb-0 active-profile-wrapper">
                                 <div className="active-profiles-wrapper">
-                                <FriendsSlider mobile={false} activeFriends={[...props.activeFriends.values()]} comparer={props.comparer}></FriendsSlider>
+                                <FriendsSlider mobile={false} activeFriends={[...this.props.activeFriends.values()]} 
+                                comparer={this.props.comparer} clickHandler={this.setUser.bind(this)}></FriendsSlider>
                                 </div>
                             </div>
-                            <LiveChat></LiveChat>
+                            <LiveChat currentUser={this.state.currentUser} show={this.state.show}></LiveChat>
                         </div>
                     </div>
                 </div>
@@ -27,6 +48,8 @@ const RegularFooter = (props) => {
         </div>
     </footer>  
     )
+}
+
 
 
 }

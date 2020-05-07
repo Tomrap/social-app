@@ -12,7 +12,7 @@ const FriendsSlider = (props) => {
     props.activeFriends.sort(props.comparer)
     
     props.activeFriends.forEach(element => {
-        slideList.push(<SingleSlide key = {element.imagesRef} photoRef={element.imagesRef}></SingleSlide>)
+        slideList.push(<SingleSlide key = {element.imagesRef} element={element} clickHandler={props.clickHandler}></SingleSlide>)
     });
     
     return (

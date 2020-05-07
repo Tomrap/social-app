@@ -20,11 +20,11 @@ const FriendsSearch = (props) => {
     props.notActiveFriends.sort(props.comparer)
     
     props.activeFriends.forEach(element => {
-        slideList.push(<SearchElement key = {element.imagesRef} element={element}></SearchElement>)
+        slideList.push(<SearchElement key = {element.userRef} element={element} clickHandler={props.clickHandler}></SearchElement>)
     });
 
     props.notActiveFriends.forEach(element => {
-        slideList.push(<SearchElement key = {element.imagesRef} element={element} active={false}></SearchElement>)
+        slideList.push(<SearchElement key = {element.userRef} element={element} active={false} clickHandler={props.clickHandler}></SearchElement>)
     });
     
     return (

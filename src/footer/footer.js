@@ -60,7 +60,7 @@ class Footer extends Component {
         return (
             <React.Fragment>
             <RegularFooter activeFriends={this.state.activeFriends}  notActiveFriends={this.state.notActiveFriends} comparer={this.comparer}></RegularFooter> 
-            <MobileFooter activeFriends={this.state.activeFriends} ></MobileFooter>
+            {/* <MobileFooter activeFriends={this.state.activeFriends} ></MobileFooter> */}
             </React.Fragment>
         )
     }
