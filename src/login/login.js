@@ -17,6 +17,13 @@ class Login extends Component {
         })
     }
 
+//     formHandler = () => {
+//         let context = this.context;
+//         context.addObject("messages", {
+// message: "message 2 - Lorem Ipsum is simply dummy text of the printing and typesetting industry",
+//         })
+//     }
+
     updateValue = (event, field) => {
         const formValue = event.target.value;
         let object = {}

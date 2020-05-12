@@ -1,8 +1,7 @@
 import React , { Component } from 'react';
-import ChatMessage from '../messages/chatMessage'
 
 import 'react-perfect-scrollbar/dist/css/styles.css';
-import PerfectScrollbar from 'react-perfect-scrollbar'
+import MessageList from '../messages/messageList'
 
 class LiveChat extends Component {
 
@@ -46,29 +45,26 @@ class LiveChat extends Component {
                     <img src="assets/images/icons/plane.png" alt=""/>
                 </button>
             </div>
-            <div className={this.state.show ? `chat-output-box show` : `chat-output-box`}>
-                <div className="live-chat-title"> 
-                    <div className="posted-author">
-                        <h6 className="author"><a href="profile.html">{this.props.currentUser.name}</a></h6>
-                        <span className="active-pro">{this.props.currentUser.active}</span>
+            {this.state.show ?
+                        <div className="chat-output-box show">
+                        <div className="live-chat-title"> 
+                            <div className="posted-author">
+                                <h6 className="author"><a href="profile.html">{this.props.currentUser.name}</a></h6>
+                                <span className="active-pro">{this.props.currentUser.active}</span>
+                            </div>
+                            <div className="live-chat-settings ml-auto">
+                                <button className="chat-settings"><i className="flaticon-settings"></i></button>
+                                <button className="close-btn" data-close="chat-output-box" onClick={this.close}><i className="flaticon-cross-out"></i></button>
+                            </div>
+                        </div>
+                        <div className="message-list-inner">
+                            <ul className="message-list custom-scroll">                  
+                                <MessageList converstionsRef={this.props.loggedInUser.conversationsRef} chatCompanion={this.props.currentUser.userId}></MessageList>     
+                            </ul>
+                        </div>
                     </div>
-                    <div className="live-chat-settings ml-auto">
-                        <button className="chat-settings"><i className="flaticon-settings"></i></button>
-                        <button className="close-btn" data-close="chat-output-box" onClick={this.close}><i className="flaticon-cross-out"></i></button>
-                    </div>
-                </div>
-                <div className="message-list-inner">
-                    <ul className="message-list custom-scroll">
-                        <PerfectScrollbar>
-                            <ChatMessage></ChatMessage>
-                            <ChatMessage></ChatMessage>
-                            <ChatMessage></ChatMessage>
-                            <ChatMessage></ChatMessage>
-                            <ChatMessage></ChatMessage>
-                        </PerfectScrollbar>
-                    </ul>
-                </div>
-            </div>
+            : <div></div>        
+            }
         </div>
     </div>
     )

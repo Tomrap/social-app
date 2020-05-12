@@ -69,6 +69,10 @@ class Firebase {
     this.db.collection("users").doc(docId).onSnapshot((doc) => callback(doc))
   }  
 
+  addObject = (collection, object) => {
+    this.db.collection(collection).add(object);
+  }
+
   // getProfileImages = async (docRef) => {
   //   return await this.db.
   // }

@@ -9,7 +9,8 @@ class RegularFooter extends Component  {
     state={
         currentUser: {
             name: "",
-            active: ""
+            active: "",
+            userId : ""
     },
         show: false
     }
@@ -40,7 +41,7 @@ render() {
                                 comparer={this.props.comparer} clickHandler={this.setUser.bind(this)}></FriendsSlider>
                                 </div>
                             </div>
-                            <LiveChat currentUser={this.state.currentUser} show={this.state.show}></LiveChat>
+                            <LiveChat loggedInUser={this.props.loggedInUser} currentUser={this.state.currentUser} show={this.state.show}></LiveChat>
                         </div>
                     </div>
                 </div>

@@ -15,7 +15,8 @@ const SearchElement = (props) => {
     return (
         <li className="d-flex align-items-center profile-active" onClick={() => props.clickHandler({
             name: props.element.firstName +" "+ props.element.lastName,
-            active: props.active == false ? "Not Active": "Active Now" 
+            active: props.active == false ? "Not Active": "Active Now",
+            userId: props.element.userRef
         }, true)}>
         
         <ProfileThumb photoRef={props.element.imagesRef} active={props.active}></ProfileThumb>
