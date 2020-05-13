@@ -1,13 +1,15 @@
 import React , { Component } from 'react';
-
 import 'react-perfect-scrollbar/dist/css/styles.css';
-import MessageList from '../messages/messageList'
+import MessageDataProvider from './messageDataProvider'
 
 class LiveChat extends Component {
+
+    // numberOfMessages = 5;
 
     state = {
         show: false,
         clicked : false
+        // lastIndex: this.numberOfMessages
     }
 
     open = () => {
@@ -58,8 +60,10 @@ class LiveChat extends Component {
                             </div>
                         </div>
                         <div className="message-list-inner">
-                            <ul className="message-list custom-scroll">                  
-                                <MessageList converstionsRef={this.props.loggedInUser.conversationsRef} chatCompanion={this.props.currentUser.userId}></MessageList>     
+                            <ul className="message-list custom-scroll">
+                                {/* providing random key will always remount component instead of rerendering which means it will clean up all states etc */}
+                                <MessageDataProvider key={Math.random()} converstionsRef={this.props.loggedInUser.conversationsRef} 
+                                chatCompanion={this.props.currentUser.userId}></MessageDataProvider> 
                             </ul>
                         </div>
                     </div>

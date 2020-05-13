@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import FriendsSlider from './friendsSlider'
 import FriendsSearch from './friendsSearch'
-import LiveChat from './liveChat'
+import LiveChat from '../messages/liveChat'
 
 
 class RegularFooter extends Component  {
