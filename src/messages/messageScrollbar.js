@@ -13,20 +13,20 @@ const MessageScrollbar = (props) => {
 
     function increaseIndexes() {
     
-       if((indexes.last + numberOfMessages) <= props.arrayOfResults.length) {
-           console.log({first: indexes.first + numberOfMessages, last: indexes.last + numberOfMessages})
-        setIndexes({first: indexes.first + numberOfMessages, last: indexes.last + numberOfMessages})
+       if((Math.abs(indexes.first) + numberOfMessages) <= props.arrayOfResults.length) {
+        //    console.log({first: indexes.first + numberOfMessages, last: indexes.last + numberOfMessages})
+        setIndexes({first: indexes.first - numberOfMessages, last: indexes.first})
        } else {
-           let numberOfRemiaingMessages = props.arrayOfResults.length - indexes.last
+           let numberOfRemiaingMessages = props.arrayOfResults.length - Math.abs(indexes.first)
            if(numberOfRemiaingMessages>0) {
-            console.log({first: indexes.first + numberOfRemiaingMessages + 1, last: indexes.last + numberOfRemiaingMessages})
-            setIndexes({first: indexes.first + numberOfRemiaingMessages + 1, last: indexes.last + numberOfRemiaingMessages})
+            // console.log({first: indexes.first + numberOfRemiaingMessages + 1, last: indexes.last + numberOfRemiaingMessages})
+            setIndexes({first: indexes.first - numberOfRemiaingMessages, last: indexes.first })
            }
        }
     }
 
     useEffect(() => {
-        setIndexes({first: 0, last: Math.min(props.arrayOfResults.length, numberOfMessages)})
+        setIndexes({first: -Math.min(props.arrayOfResults.length, numberOfMessages), last: props.arrayOfResults.length})
     },[props.arrayOfResults])
         
 

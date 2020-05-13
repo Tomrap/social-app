@@ -18,7 +18,7 @@ const MessageList = (props) => {
         //     setMessageList([])
         // }
         let currentMessageList = []
-        props.resultsToDisplay.forEach(element => {
+        props.resultsToDisplay.slice().reverse().forEach(element => {
             let elementId = element.id
             let elementData = element.data()
             let date = new Date(1970, 0, 1)
