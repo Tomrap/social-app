@@ -17,8 +17,15 @@ const MessageList = (props) => {
         // if(props.indexes.first == 0) {
         //     setMessageList([])
         // }
+        let promisesList = []
+        props.resultsToDisplay.forEach(element => {
+            promisesList.push(element.get())
+        });
+
+        let arrOfResults = await Promise.all(promisesList);
+
         let currentMessageList = []
-        props.resultsToDisplay.slice().reverse().forEach(element => {
+        arrOfResults.slice().reverse().forEach(element => {
             let elementId = element.id
             let elementData = element.data()
             let date = new Date(1970, 0, 1)

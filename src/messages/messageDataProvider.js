@@ -18,14 +18,14 @@ const MessageDataProvider = (props) => {
         let chatResult = await conversaionsMap.chatsMap[props.chatCompanion].get()
         let chatList = chatResult.data()
 
-        let promisesList = []
-        chatList.messageList.forEach(element => {
-            promisesList.push(element.get())
-        });
+        // let promisesList = []
+        // chatList.messageList.forEach(element => {
+        //     promisesList.push(element.get())
+        // });
 
-        let arrOfResults = await Promise.all(promisesList);
+        // let arrOfResults = await Promise.all(promisesList);
         // setIndexes({first: 0, last: numberOfMessages})
-        setArrayOfResults(arrOfResults)
+        setArrayOfResults(chatList.messageList)
 
     }
     setUpData()

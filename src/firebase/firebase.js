@@ -14,6 +14,10 @@ class Firebase {
     return this.auth;
   }
 
+  getDb() {
+    return this.db;
+  }
+
   async signup(email, password, successHandler) {
     await this.auth().createUserWithEmailAndPassword(email, password).then(() => successHandler())
     .catch(error => console.log(error.message))

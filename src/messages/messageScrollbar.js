@@ -35,14 +35,14 @@ const MessageScrollbar = (props) => {
         ref = {scrollBarRef}
 onYReachEnd={() => {
     
-//   setTimeout(() => {
+  setTimeout(() => {
     increaseIndexes()
     // scrollBarRef.current.updateScroll()
 
 //    this.setState({
 //         lastIndex: this.state.lastIndex + this.numberOfMessages
 //    })
-//   }, 100)
+  }, 500)
 }
 // this._scrollBarRef.updateScroll()
 }

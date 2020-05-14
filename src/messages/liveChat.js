@@ -1,15 +1,13 @@
 import React , { Component } from 'react';
 import 'react-perfect-scrollbar/dist/css/styles.css';
 import MessageDataProvider from './messageDataProvider'
+import SendMessage from './sendMessage'
 
 class LiveChat extends Component {
-
-    // numberOfMessages = 5;
 
     state = {
         show: false,
         clicked : false
-        // lastIndex: this.numberOfMessages
     }
 
     open = () => {
@@ -37,17 +35,13 @@ class LiveChat extends Component {
         }
       }
 
+
     render() {
     return (
         <div className="footer-card position-relative">
             {this.state.show ?
                 <div className="live-chat-inner">
-                        <div className="chat-text-field">   
-                            <textarea className="live-chat-field myOwnTextArea" placeholder="Text Message"></textarea>
-                            <button className="chat-message-send" type="submit" value="submit">
-                                <img src="assets/images/icons/plane.png" alt=""/>
-                            </button>
-                        </div>
+                        <SendMessage loggedInUser={this.props.loggedInUser} chatCompanion={this.props.currentUser.userId}></SendMessage>
                         <div className="chat-output-box show">
                             <div className="live-chat-title"> 
                                 <div className="posted-author">
@@ -70,7 +64,6 @@ class LiveChat extends Component {
                 </div>
             : <div></div>        
             }
-        
     </div>
     )
     }
