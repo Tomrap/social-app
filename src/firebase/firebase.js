@@ -67,11 +67,18 @@ class Firebase {
 
   updateUser = async (user, userId) => {
     await this.db.collection("users").doc(userId).set(user);
-  }  
+  }
 
   listenToDocumentChange = (docId, callback) => {
     this.db.collection("users").doc(docId).onSnapshot((doc) => callback(doc))
   }  
+
+  // //merge
+  // listenToDocumentChangeInChats = (docId, callback) => {
+  //   this.db.collection("chat").doc(docId).onSnapshot((doc) => callback(doc))
+  // } 
+
+
 
   addObject = (collection, object) => {
     this.db.collection(collection).add(object);

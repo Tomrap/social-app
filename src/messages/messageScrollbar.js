@@ -1,5 +1,6 @@
 import MessageList from './messageList'
 import PerfectScrollbar from 'react-perfect-scrollbar'
+import NewMessages from './newMessages'
 
 import React, { useState, useEffect, useRef } from 'react';
 
@@ -42,13 +43,16 @@ onYReachEnd={() => {
 //    this.setState({
 //         lastIndex: this.state.lastIndex + this.numberOfMessages
 //    })
-  }, 500)
+  }, 300)
 }
 // this._scrollBarRef.updateScroll()
 }
 > 
 <ul> 
-<MessageList resultsToDisplay= {props.arrayOfResults.slice(indexes.first, indexes.last)} chatCompanion={props.chatCompanion}></MessageList>
+<NewMessages newMessage = {props.newMessage} chatCompanion={props.chatCompanion}></NewMessages>
+<MessageList resultsToDisplay= {props.arrayOfResults.slice(indexes.first, indexes.last)} chatCompanion={props.chatCompanion} 
+// newMessage = {props.newMessage}
+></MessageList>
             </ul>    
 </PerfectScrollbar>
 

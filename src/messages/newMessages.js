@@ -2,13 +2,11 @@ import ChatMessage from './chatMessage'
 
 import PerfectScrollbar from 'react-perfect-scrollbar'
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 
-const MessageList = (props) => {
+const NewMessages = (props) => {
 
     // const numberOfMessages = 5;
-
-    const prevPropsRef = useRef(undefined);
 
     const [messageList, setMessageList] = useState([]);
     // const [indexes, setIndexes] = useState({first: 0, last: numberOfMessages})
@@ -19,22 +17,37 @@ const MessageList = (props) => {
         // if(props.indexes.first == 0) {
         //     setMessageList([])
         // }
-        let promisesList = []
-        props.resultsToDisplay.forEach(element => {
-            promisesList.push(element.get())
-        });
 
-        let arrOfResults = await Promise.all(promisesList);
-
-        let currentMessageList = []
-        arrOfResults.slice().reverse().forEach(element => {
-            let elementId = element.id
-            let elementData = element.data()
+        if(props.newMessage != undefined) {
+            const newMessage = await props.newMessage.get()
+            let elementId = newMessage.id
+            let elementData = newMessage.data()
             let date = new Date(1970, 0, 1)
             date.setSeconds(elementData.date.seconds)
-            currentMessageList.push(<ChatMessage key = {elementId} me={props.chatCompanion == elementData.userRef} 
+            let messageListCopy = messageList.slice()
+            messageListCopy.unshift(<ChatMessage key = {elementId} me={props.chatCompanion == elementData.userRef} 
                 message = {elementData.message} time={date.toISOString().substr(11, 8)}></ChatMessage>)
-        });
+    
+            setMessageList(messageListCopy)
+        }
+
+
+        // let promisesList = []
+        // props.resultsToDisplay.forEach(element => {
+        //     promisesList.push(element.get())
+        // });
+
+        // let arrOfResults = await Promise.all(promisesList);
+
+        // let currentMessageList = []
+        // arrOfResults.slice().reverse().forEach(element => {
+        //     let elementId = element.id
+        //     let elementData = element.data()
+        //     let date = new Date(1970, 0, 1)
+        //     date.setSeconds(elementData.date.seconds)
+        //     currentMessageList.push(<ChatMessage key = {elementId} me={props.chatCompanion == elementData.userRef} 
+        //         message = {elementData.message} time={date.toISOString().substr(11, 8)}></ChatMessage>)
+        // });
         // for (let index = props.indexes.first; index < props.indexes.last; index++) {
         //     // if(index>props.arrayOfResults.length) {
         //     //     // setFinished(true)
@@ -50,15 +63,11 @@ const MessageList = (props) => {
         //     currentMessageList.push(<ChatMessage key = {props.chatCompanion} me={props.chatCompanion == elementData.userRef} 
         //         message = {elementData.message} time={date.toISOString().substr(11, 8)}></ChatMessage>)
         // }
-        setMessageList(messageList.concat(currentMessageList))
+        // setMessageList(messageList.concat(currentMessageList))
     }
 
     useEffect(() => {
 
-            //check if 
-            // if(prevPropsRef.current[]
-
-            // prevPropsRef.current = props.resultsToDisplay;
             // if(props.newMessage == undefined) {
                 fetchData()
             // } else {
@@ -68,7 +77,7 @@ const MessageList = (props) => {
             //     setSlideList([])
             //   };
               
-      }, [props.chatCompanion, props.resultsToDisplay]);
+      }, [props.chatCompanion, props.newMessage]);
 
     //   useEffect(() => { 
 
@@ -98,4 +107,4 @@ const MessageList = (props) => {
         //    </PerfectScrollbar>   
             )
 }
-export default MessageList
+export default NewMessages
