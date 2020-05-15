@@ -33,24 +33,27 @@ const MessageScrollbar = (props) => {
 
 
     return ( <PerfectScrollbar 
-        ref = {scrollBarRef}
+      containerRef = {(ref) => scrollBarRef.current = ref}
 onYReachEnd={() => {
     
   setTimeout(() => {
-    increaseIndexes()
-    // scrollBarRef.current.updateScroll()
+    // if(scrollBarRef.current.scrollHeight -scrollBarRef.current.scrollTop > 20) {
+      increaseIndexes()
+      // scrollBarRef.updateS croll()
+    // }
+    // console.log(scrollBarRef)
 
 //    this.setState({
 //         lastIndex: this.state.lastIndex + this.numberOfMessages
 //    })
-  }, 300)
+  }, 200)
 }
 // this._scrollBarRef.updateScroll()
 }
 > 
 <ul> 
 <NewMessages newMessage = {props.newMessage} chatCompanion={props.chatCompanion}></NewMessages>
-<MessageList resultsToDisplay= {props.arrayOfResults.slice(indexes.first, indexes.last)} chatCompanion={props.chatCompanion} 
+<MessageList arrayOfResults = {props.arrayOfResults} indexes= {indexes} chatCompanion={props.chatCompanion} 
 // newMessage = {props.newMessage}
 ></MessageList>
             </ul>    

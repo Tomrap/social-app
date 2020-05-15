@@ -56,13 +56,15 @@ const MessageDataProvider = (props) => {
 
 
         // setArrayOfResults(chatList.messageList)
-
+          
   
 
-        conversaionsMap.chatsMap[props.chatCompanion].onSnapshot((snapshot) => callback(snapshot))
+        let unsubscribe = conversaionsMap.chatsMap[props.chatCompanion].onSnapshot((snapshot) => callback(snapshot))
         
 
-
+        return () => {
+          unsubscribe();
+        }
     }
     setUpData()
     },[props.converstionsRef,props.chatCompanion])

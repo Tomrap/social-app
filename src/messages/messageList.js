@@ -8,7 +8,6 @@ const MessageList = (props) => {
 
     // const numberOfMessages = 5;
 
-    const prevPropsRef = useRef(undefined);
 
     const [messageList, setMessageList] = useState([]);
     // const [indexes, setIndexes] = useState({first: 0, last: numberOfMessages})
@@ -20,7 +19,8 @@ const MessageList = (props) => {
         //     setMessageList([])
         // }
         let promisesList = []
-        props.resultsToDisplay.forEach(element => {
+        let resultsToDisplay = props.arrayOfResults.slice(props.indexes.first, props.indexes.last)
+        resultsToDisplay.forEach(element => {
             promisesList.push(element.get())
         });
 
@@ -32,8 +32,15 @@ const MessageList = (props) => {
             let elementData = element.data()
             let date = new Date(1970, 0, 1)
             date.setSeconds(elementData.date.seconds)
-            currentMessageList.push(<ChatMessage key = {elementId} me={props.chatCompanion == elementData.userRef} 
-                message = {elementData.message} time={date.toISOString().substr(11, 8)}></ChatMessage>)
+
+            let message = <ChatMessage key = {elementId} myKey = {elementId} me={props.chatCompanion == elementData.userRef} 
+            message = {elementData.message} time={date.toISOString().substr(11, 8)}></ChatMessage>
+
+            //sometimes there are some async issues which should be fixed but for now dumb check here:
+            if (messageList.filter(e => e.props.myKey === elementId).length == 0) {
+                currentMessageList.push(message)
+            }
+
         });
         // for (let index = props.indexes.first; index < props.indexes.last; index++) {
         //     // if(index>props.arrayOfResults.length) {
@@ -68,7 +75,7 @@ const MessageList = (props) => {
             //     setSlideList([])
             //   };
               
-      }, [props.chatCompanion, props.resultsToDisplay]);
+      }, [props.chatCompanion, props.indexes, props.arrayOfResults]);
 
     //   useEffect(() => { 
 
